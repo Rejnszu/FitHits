@@ -1,0 +1,11 @@
+.wrapper {
+  background-color: white;
+  position: relative;
+  width: auto;
+  max-width: 95%;
+  min-height: 200px;
+  margin: 5rem auto;
+  border-radius: 20px;
+  box-shadow: 0 0 3px 5px purple;
+  padding: 0.8rem;
+}

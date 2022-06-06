@@ -1,0 +1,21 @@
+.calories-display {
+  position: absolute;
+  top: 65px;
+  right: 40px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: purple;
+  background-color: white;
+  box-shadow: 0 0 3px 5px purple;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  width: 500px;
+  max-width: 95%;
+  text-align: center;
+}
+@media (max-width: 1400px) {
+  .calories-display {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+} ;

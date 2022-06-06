@@ -1,0 +1,77 @@
+.wrapper--user-data {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+form {
+  min-width: 0;
+}
+.user__title {
+  font-size: 1.5rem;
+  text-align: center;
+  color: purple;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.user__input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user__input__label {
+  font-weight: 600;
+  font-size: clamp(0.8rem, 3vw, 1.25rem);
+  color: purple;
+
+  margin-bottom: 0.5rem;
+}
+.user__parameter-input {
+  padding: 0.5rem;
+  width: 150px;
+  max-width: 100%;
+  border: 2px solid purple;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.user__demand {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user__demand__text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: purple;
+}
+
+.user__button {
+  margin: 1rem auto;
+  display: block;
+  border-radius: 10px;
+  border: 2px solid purple;
+  font-weight: 600;
+  color: purple;
+  padding: 0.5rem 1rem;
+}
+.user__button:hover {
+  background-color: rgba(128, 0, 128, 0.15);
+  cursor: pointer;
+}
+.user__gender-select {
+  position: relative;
+  margin: auto;
+  padding: 0.3rem 0.8rem;
+  border-radius: 10px;
+  font-weight: 600;
+  color: purple;
+  display: block;
+  border: 2px solid purple;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 550px) {
+  .wrapper--user-data {
+    flex-direction: column;
+  }
+}
