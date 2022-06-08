@@ -32,14 +32,14 @@
 .wrapper--input {
   height: 100px !important;
   overflow-y: scroll;
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   margin: 2rem auto;
   width: 85%;
 }
 
 .wrapper--input::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+  display: none;
 }
 
 .form__input__button {

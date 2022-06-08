@@ -58,7 +58,8 @@ form {
   background-color: rgba(128, 0, 128, 0.15);
   cursor: pointer;
 }
-.user__gender-select {
+
+.user__select {
   position: relative;
   margin: auto;
   padding: 0.3rem 0.8rem;
@@ -69,7 +70,11 @@ form {
   border: 2px solid purple;
   margin-bottom: 1rem;
 }
-
+.user__select__title {
+  text-align: center;
+  color: purple;
+  font-weight: 600;
+}
 @media (max-width: 550px) {
   .wrapper--user-data {
     flex-direction: column;

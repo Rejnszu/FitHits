@@ -8,27 +8,30 @@ const UserData = (props) => {
   const massInput = useRef(null);
   const ageInput = useRef(null);
   const gender = useRef(null);
-
+  const activity = useRef(null);
   function getDemand() {
     if (gender.current.value === "man") {
       return (
-        66 +
-        13.7 * massInput.current.value +
-        5 * heightInput.current.value -
-        6.8 * ageInput.current.value
+        (66 +
+          13.7 * massInput.current.value +
+          5 * heightInput.current.value -
+          6.8 * ageInput.current.value) *
+        Number(activity.current.value)
       ).toFixed();
     } else {
       return (
-        655 +
-        9.6 * massInput.current.value +
-        1.8 * heightInput.current.value -
-        4.7 * ageInput.current.value
+        (655 +
+          9.6 * massInput.current.value +
+          1.8 * heightInput.current.value -
+          4.7 * ageInput.current.value) *
+        Number(activity.current.value)
       ).toFixed();
     }
   }
 
   function submitUserData(e) {
     e.preventDefault();
+
     if (
       massInput.current.value === "" ||
       heightInput.current.value === "" ||
@@ -79,10 +82,19 @@ const UserData = (props) => {
             />
           </div>
         </div>
-        <select ref={gender} className={styles["user__gender-select"]}>
+        <p className={styles["user__select__title"]}>Gender</p>
+        <select ref={gender} className={styles["user__select"]}>
           <option value="man">Man</option>
           <option value="woman">Woman</option>
         </select>
+        <p className={styles["user__select__title"]}>Physical Activity</p>
+        <select ref={activity} className={styles["user__select"]}>
+          <option value="1">None</option>
+          <option value="1.2">Light</option>
+          <option value="1.6">Medium</option>
+          <option value="1.8">Heavy</option>
+        </select>
+
         <hr />
         <button className={styles["user__button"]}>Calculate</button>
       </form>
