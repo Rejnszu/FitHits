@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+:root {
+  --border-radius: 5px;
+}
 html {
   font-family: sans-serif;
 }
@@ -15,7 +18,7 @@ h1 {
   font-weight: 700;
 
   letter-spacing: 0.4rem;
-  margin: 2rem auto 8rem auto;
+  margin: 1rem auto;
   color: white;
 
   border-radius: 20px;

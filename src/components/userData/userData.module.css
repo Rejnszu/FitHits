@@ -1,3 +1,9 @@
+.test {
+  max-width: 95%;
+  width: 700px;
+  margin: auto;
+}
+
 .wrapper--user-data {
   width: 700px;
   display: flex;
@@ -7,7 +13,7 @@ form {
   min-width: 0;
 }
 .user__title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: center;
   color: purple;
   font-weight: 600;
@@ -20,18 +26,19 @@ form {
 }
 .user__input__label {
   font-weight: 600;
-  font-size: clamp(0.8rem, 3vw, 1.25rem);
+  font-size: clamp(0.8rem, 3vw, 1rem);
   color: purple;
 
   margin-bottom: 0.5rem;
 }
 .user__parameter-input {
   padding: 0.5rem;
-  width: 150px;
+  width: 100px;
   max-width: 100%;
   border: 2px solid purple;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-bottom: 1rem;
+  font-size: 16px;
 }
 .user__demand {
   max-width: 100%;
@@ -48,7 +55,7 @@ form {
 .user__button {
   margin: 1rem auto;
   display: block;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   border: 2px solid purple;
   font-weight: 600;
   color: purple;
@@ -63,7 +70,7 @@ form {
   position: relative;
   margin: auto;
   padding: 0.3rem 0.8rem;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   font-weight: 600;
   color: purple;
   display: block;

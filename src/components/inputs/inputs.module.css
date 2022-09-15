@@ -18,11 +18,12 @@
 }
 .form__input {
   padding: 0.5rem;
-  width: 300px;
+  width: 200px;
   max-width: 100%;
   border: 2px solid purple;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   margin-bottom: 1rem;
+  font-size: 16px;
 }
 
 .form__input:focus {
@@ -30,12 +31,12 @@
   background-color: rgba(128, 0, 128, 0.1);
 }
 .wrapper--input {
-  height: 100px !important;
+  min-height: 100px !important;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  margin: 2rem auto;
-  width: 85%;
+  margin: 1rem auto;
+  max-width: 90%;
 }
 
 .wrapper--input::-webkit-scrollbar {
@@ -45,7 +46,7 @@
 .form__input__button {
   margin: 1rem auto;
   display: block;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   border: 2px solid purple;
   font-weight: 600;
   color: purple;

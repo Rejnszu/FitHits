@@ -2,28 +2,25 @@ import { useState } from "react";
 
 const useInput = () => {
   const [items, setItems] = useState([]);
-  const [itemName, setItemName] = useState("");
-  const [calories, setCalories] = useState("");
 
-  function itemNameHandler(value) {
-    setItemName(value);
-  }
-  function caloriesHandler(value) {
-    setCalories(value);
-  }
   function addItem(itemName, calories) {
     setItems((prevItems) => {
-      return [...prevItems, { name: itemName, calories: calories }];
+      return [
+        ...prevItems,
+        { name: itemName, calories: calories, id: items.length },
+      ];
+    });
+  }
+  function removeItem(clickedId) {
+    setItems((prevState) => {
+      return [...prevState.filter((item) => item.id !== clickedId)];
     });
   }
 
   return {
     items: items,
-    itemName: itemName,
-    calories: calories,
-    itemNameHandler: itemNameHandler,
-    caloriesHandler: caloriesHandler,
     addItem: addItem,
+    removeItem: removeItem,
   };
 };
 

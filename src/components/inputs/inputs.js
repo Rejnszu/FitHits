@@ -1,63 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./inputs.module.css";
 import Wrapper from "../wrapper/wrapper";
 import ItemsList from "../Lists/itemsList";
 import useInput from "../hooks/use-input";
+import { useEffect } from "react";
 
 const Inputs = (props) => {
   const [caloriesSum, setCaloriesSum] = useState(0);
-
-  const {
-    items,
-    itemName,
-    calories,
-    itemNameHandler,
-    caloriesHandler,
-    addItem,
-  } = useInput();
+  const caloriesRef = useRef(null);
+  const nameRef = useRef(null);
+  const { items, addItem, removeItem } = useInput();
 
   const reducedCalories = items.reduce((total, item) => {
     return total + +item.calories;
-  }, +calories);
+  }, 0);
 
-  function onChangeItemName(e) {
-    itemNameHandler(e.target.value);
-  }
-  function onChangeCalories(e) {
-    caloriesHandler(e.target.value);
-  }
-  function formSubmit(e) {
+  function addHandler(e) {
     e.preventDefault();
-    if (itemName === "" || calories === "") {
+    if (nameRef.current.value === "" || caloriesRef.current.value === "") {
       return;
     }
 
-    addItem(itemName, calories);
+    addItem(nameRef.current.value, caloriesRef.current.value);
+    nameRef.current.value = "";
+    caloriesRef.current.value = "";
+  }
+
+  function removeHandler(clickedId) {
+    removeItem(clickedId);
+  }
+
+  useEffect(() => {
     setCaloriesSum(reducedCalories);
+  }, [reducedCalories]);
+
+  useEffect(() => {
     if (props.isFood) {
       props.getIntakeHandler(reducedCalories);
     } else {
       props.getBurnedHandler(reducedCalories);
     }
-    itemNameHandler("");
-    caloriesHandler("");
-  }
-
+  }, [reducedCalories, props]);
   return (
     <div>
       <p className={styles["form__calories-sum"]}>
         {caloriesSum}
         {props.isFood ? " Calories Taken" : " Calories Burnt"}
       </p>
-      <form onSubmit={formSubmit}>
+      <form onSubmit={addHandler}>
         <div className={styles["form__wrapper"]}>
           <div className={styles["form__input-wrapper"]}>
             <label htmlFor="food" className={styles["form__label"]}>
               {props.isFood ? "Type of food" : "Type of exercise"}
             </label>
             <input
-              value={itemName}
-              onChange={onChangeItemName}
+              ref={nameRef}
               type="text"
               id="fod"
               className={styles["form__input"]}
@@ -68,8 +65,7 @@ const Inputs = (props) => {
               {props.isFood ? "Calories Intake" : "Calories Burnt"}
             </label>
             <input
-              value={calories}
-              onChange={onChangeCalories}
+              ref={caloriesRef}
               type="number"
               id="calories"
               className={styles["form__input"]}
@@ -81,7 +77,7 @@ const Inputs = (props) => {
         </button>
       </form>
       <Wrapper classes={styles["wrapper--input"]}>
-        <ItemsList itemList={items} />
+        <ItemsList itemList={items} removeItem={removeHandler} />
       </Wrapper>
     </div>
   );
